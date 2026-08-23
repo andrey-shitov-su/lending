@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1f16"/>
+      <stop offset="100%" stop-color="#123d2b"/>
+    </linearGradient>
+    <linearGradient id="mono" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ce88a"/>
+      <stop offset="100%" stop-color="#1f9d5c"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="600" height="600" rx="48" fill="url(#bg)"/>
+
+  <circle cx="300" cy="240" r="150" fill="none" stroke="url(#mono)" stroke-width="4" opacity="0.45" filter="url(#glow)"/>
+
+  <text x="300" y="300"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="200"
+        font-weight="700"
+        text-anchor="middle"
+        fill="url(#mono)"
+        filter="url(#glow)">AS</text>
+
+  <line x1="150" y1="360" x2="450" y2="360" stroke="url(#mono)" stroke-width="3" opacity="0.7"/>
+
+  <text x="300" y="410"
+        font-family="Helvetica, Arial, sans-serif"
+        font-size="34"
+        letter-spacing="2"
+        text-anchor="middle"
+        fill="#3ce88a">ANDREY</text>
+
+  <text x="300" y="450"
+        font-family="Helvetica, Arial, sans-serif"
+        font-size="22"
+        letter-spacing="4"
+        text-anchor="middle"
+        fill="#c9e8d8">SHITOV.SU</text>
+</svg>
