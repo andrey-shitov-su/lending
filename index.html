@@ -198,7 +198,7 @@ h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin:22px 0 0;font-weight:800}
   var(--avatar);
   display:grid;place-items:center;color:#fff;font-size:76px;font-weight:800;letter-spacing:-.05em;
   text-shadow:0 8px 30px rgba(0,0,0,.4);overflow:hidden}
-.avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chip{padding:6px 12px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line);font-size:12.5px;color:var(--muted);font-weight:500}
 
@@ -244,20 +244,6 @@ h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
 .layer h3{font-size:17.5px;margin-top:16px}
 .layer p{color:var(--muted);font-size:14.5px;margin:8px 0 0}
 .layer .tags{margin-top:15px}
-
-/* ============ СХЕМЫ ============ */
-.arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:860px){.arch-grid{grid-template-columns:1fr}}
-.arch-card{padding:28px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
-.arch-card header{position:static;height:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.arch-card h3{font-size:19px}
-.arch-tag{font-size:12px;font-weight:800;letter-spacing:.1em;padding:5px 11px;border-radius:7px;
-  background:color-mix(in srgb,var(--brand) 16%,transparent);color:var(--ink-accent);
-  border:1px solid color-mix(in srgb,var(--brand) 36%,transparent)}
-.arch-tag.alt{background:color-mix(in srgb,var(--brand-deep) 18%,transparent);
-  border-color:color-mix(in srgb,var(--brand-deep) 40%,transparent)}
-.arch-card p{color:var(--muted);font-size:14.5px;margin:14px 0 0}
-.dia{width:100%;height:auto;margin-top:20px;color:var(--text);opacity:.9;overflow:visible}
 
 /* ============ ПРОЕКТЫ ============ */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
@@ -510,7 +496,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
     </div>
     <div class="tilt-wrap">
       <div class="card3d" id="tilt">
-        <div class="avatar"><img src="assets/photo.jpg" alt="Андрей Шитов" width="960" height="1252" fetchpriority="high"></div>
+        <div class="avatar"><img src="assets/photo.jpg" alt="Андрей Шитов" width="760" height="689" fetchpriority="high"></div>
         <div class="chips">
           <span class="chip">Ansible</span><span class="chip">Terraform</span><span class="chip">Packer</span>
           <span class="chip">Kubernetes</span><span class="chip">GitLab CI/CD</span><span class="chip">Python</span>
@@ -604,58 +590,6 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   </div>
 </section>
 
-<!-- ===== СХЕМЫ ===== -->
-<section id="arch">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Схемы</span>
-      <h2>Сначала описать,<br>потом автоматизировать</h2>
-      <p class="sec-sub">Две нотации, которыми я пользуюсь постоянно: C4 — чтобы объяснить устройство системы, EPC — чтобы разложить процесс на шаги перед тем, как отдать его конвейеру.</p>
-    </div>
-    <div class="arch-grid">
-      <article class="arch-card reveal">
-        <header><span class="arch-tag">C4</span><h3>Архитектура системы</h3></header>
-        <p>Четыре уровня приближения — от «кто с кем взаимодействует» до деталей реализации. Каждому собеседнику показываю свой уровень.</p>
-        <svg class="dia" viewBox="0 0 420 252" role="img" aria-label="Четыре уровня модели C4: контекст, контейнеры, компоненты, код">
-          <g fill="none" stroke="currentColor">
-            <rect x="10"  y="16"  width="400" height="46" rx="12" opacity=".85"/>
-            <rect x="34"  y="74"  width="352" height="46" rx="12" opacity=".7"/>
-            <rect x="58"  y="132" width="304" height="46" rx="12" opacity=".55"/>
-            <rect x="82"  y="190" width="256" height="46" rx="12" opacity=".4"/>
-          </g>
-          <g font-size="13" font-weight="600" fill="currentColor">
-            <text x="28"  y="44">Контекст — система и её окружение</text>
-            <text x="52"  y="102">Контейнеры — из чего она состоит</text>
-            <text x="76"  y="160">Компоненты — что внутри</text>
-            <text x="100" y="218">Код — детали реализации</text>
-          </g>
-        </svg>
-      </article>
-      <article class="arch-card reveal">
-        <header><span class="arch-tag alt">EPC</span><h3>Процесс по шагам</h3></header>
-        <p>Событийная цепочка процессов: событие запускает функцию, функция порождает новое событие. Удобно ложится на этапы пайплайна.</p>
-        <svg class="dia" viewBox="0 0 420 252" role="img" aria-label="Цепочка EPC: событие, функция, событие, функция">
-          <g fill="none" stroke="currentColor" stroke-width="1.4">
-            <polygon points="72,10 348,10 360,29 348,48 72,48 60,29" opacity=".8"/>
-            <rect x="60" y="68" width="300" height="42" rx="11" opacity=".8"/>
-            <polygon points="72,130 348,130 360,149 348,168 72,168 60,149" opacity=".8"/>
-            <rect x="60" y="188" width="300" height="42" rx="11" opacity=".8"/>
-            <path d="M210 48v20M210 110v20M210 168v20" opacity=".55"/>
-          </g>
-          <g fill="currentColor" opacity=".55">
-            <polygon points="206,68 214,68 210,74"/><polygon points="206,130 214,130 210,136"/><polygon points="206,188 214,188 210,194"/>
-          </g>
-          <g font-size="13" fill="currentColor" text-anchor="middle">
-            <text x="210" y="34" opacity=".75">Нужна новая версия шаблона</text>
-            <text x="210" y="94" font-weight="700">Сборка и настройка ОС</text>
-            <text x="210" y="154" opacity=".75">Шаблон собран</text>
-            <text x="210" y="214" font-weight="700">Автотесты и продвижение в прод</text>
-          </g>
-        </svg>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- ===== ОБРАЗОВАНИЕ ===== -->
 <section id="education">
@@ -702,22 +636,6 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   </div>
 </section>
 
-<!-- ===== КУРСЫ ===== -->
-<section id="courses">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Курсы</span>
-      <h2>В разработке</h2>
-      <p class="sec-sub">Готовлю курсы по Linux и автоматизации для тех, кто начинает.</p>
-    </div>
-    <div class="stub reveal">
-      <span class="stub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></span>
-      <span class="stub-tag">в разработке</span>
-      <b>Программа ещё собирается</b>
-      <p>Ни цен, ни предзаписи пока нет — анонсирую темы и даты здесь и на канале, когда будет что показать.</p>
-    </div>
-  </div>
-</section>
 
 <!-- ===== ДЛЯ HR ===== -->
 <section id="hr">
