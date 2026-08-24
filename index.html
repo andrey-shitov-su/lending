@@ -185,6 +185,26 @@ h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin:22px 0 0;font-weight:800}
 @keyframes blink{50%{opacity:0}}
 .lead{color:var(--muted);font-size:17.5px;max-width:52ch;margin:22px 0 0}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.cta-note{margin:14px 0 0;font-size:13.5px;color:var(--muted)}
+.cta-note b{color:var(--text);font-weight:600}
+.cta-note span:not(:empty){margin-left:8px;padding:2px 9px;border-radius:99px;font-weight:700;font-size:12px;
+  color:var(--ink-accent);background:color-mix(in srgb,var(--brand-deep) 16%,transparent);
+  border:1px solid color-mix(in srgb,var(--brand-deep) 38%,transparent)}
+/* ---- цифры под первым экраном ---- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:72px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stat{background:var(--bg);padding:24px 22px}
+.stat b{display:block;font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:800;letter-spacing:-.03em;
+  background:linear-gradient(120deg,var(--grad-a),var(--grad-b) 55%,var(--grad-c));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat b i{font-style:normal;margin:0 6px;opacity:.6}
+.stat span{display:block;margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr);margin-top:52px}}
+@media(max-width:480px){.stats{grid-template-columns:1fr}}
+/* ---- кнопка канала в шапке ---- */
+.yt-btn{display:flex;align-items:center;width:auto;gap:8px;padding:0 14px;font-size:13.5px;font-weight:600;color:var(--text);text-decoration:none}
+.yt-btn:hover{color:var(--ink-accent)}
+@media(max-width:560px){.yt-btn span{display:none}.yt-btn{width:40px;padding:0;justify-content:center}}
 /* карточка-аватар с 3D-наклоном */
 .tilt-wrap{perspective:1000px}
 .card3d{position:relative;border-radius:26px;padding:30px;background:var(--surface);border:1px solid var(--line);
@@ -288,6 +308,7 @@ h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
   box-shadow:var(--shadow);position:relative;overflow:hidden}
 .teaser::before{content:"";position:absolute;inset:auto -80px -120px auto;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle,color-mix(in srgb,var(--brand) 30%,transparent),transparent 70%);pointer-events:none}
+.teaser .badge #cd2:not(:empty){margin-left:8px;padding-left:8px;border-left:1px solid var(--line);opacity:.85}
 .teaser h3{font-size:clamp(1.25rem,3vw,1.75rem);margin-top:18px;letter-spacing:-.02em;position:relative}
 .teaser p{color:var(--muted);font-size:16px;max-width:58ch;margin-top:12px;position:relative}
 .teaser .hero-cta{position:relative}
@@ -446,6 +467,10 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
       </ul>
     </nav>
     <div class="nav-tools">
+      <a class="icon-btn yt-btn" href="https://www.youtube.com/@Andrey.Shitov" target="_blank" rel="noopener" title="Канал на YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>
+        <span>Канал</span>
+      </a>
       <button class="icon-btn" id="brand" title="Переключить на гамму Red Hat">
         <svg class="ic-suse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9.6 13.1c-2.3.5-4 1.9-4.4 3.7a2.5 2.5 0 1 0 3.2-2.1" stroke-width="2.2"/>
@@ -484,15 +509,16 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
       <span class="type-line"><span id="typed"></span><span class="caret"></span></span>
       <p class="lead">Системный администратор решений на Linux. Собираю платформу из RedHat Satellite, Ansible AWX, Kubernetes и Puppet, а рутину закрываю конвейерами на GitLab CI/CD, Terraform и Packer.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#work">
-          Смотреть проекты
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <a class="btn btn-primary" href="https://www.youtube.com/@Andrey.Shitov" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>
+          Подписаться на канал
         </a>
-        <a class="btn btn-ghost" href="#stack">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg>
-          Мой стек
+        <a class="btn btn-ghost" href="#work">
+          Смотреть проекты
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
+      <p class="cta-note">Первое видео — <b>30 августа 2026</b><span id="cd"></span></p>
     </div>
     <div class="tilt-wrap">
       <div class="card3d" id="tilt">
@@ -503,6 +529,14 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
           <span class="chip">Satellite</span><span class="chip">Vault</span>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b>3000</b><span>серверов переключено на новую платформу</span></div>
+      <div class="stat"><b>6 мес.</b><span>миграция парка без даунтайма</span></div>
+      <div class="stat"><b>1 неделя<i>→</i>1 час</b><span>выпуск новой версии шаблона ОС</span></div>
+      <div class="stat"><b>с 2020</b><span>занимаюсь автоматизацией инфраструктуры</span></div>
     </div>
   </div>
 </section>
@@ -618,7 +652,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
       <p class="sec-sub">Разбираю инфраструктурные задачи на практике — так, чтобы можно было повторить у себя.</p>
     </div>
     <div class="teaser reveal">
-      <span class="badge"><span class="dot"></span> Первое видео — 30 августа 2026</span>
+      <span class="badge"><span class="dot"></span> Первое видео — 30 августа 2026<span id="cd2"></span></span>
       <h3>HA-кластер HAProxy: от схемы до рабочей конфигурации</h3>
       <p>Как устроена балансировка, что именно делает кластер отказоустойчивым и как не собрать себе
          единую точку отказа вместо страховки.</p>
@@ -875,7 +909,15 @@ const credentials = [
 
   { type:"cert", title:"Certificate of Achievement — RH342", issuer:"УЦ Инвента", year:"2022",
     note:"Red Hat Enterprise Linux Diagnostics and Troubleshooting · INV-20222411-01",
-    file:"certs/cert-rh342-inventa.jpg" }
+    file:"certs/cert-rh342-inventa.jpg" },
+
+  { type:"cert", title:"Certificate of Achievement — RH415", issuer:"УЦ Инвента", year:"2023",
+    note:"Red Hat Security: Linux in Physical, Virtual, and Cloud · HLD-20230202-01",
+    file:"certs/cert-rh415-inventa.jpg" },
+
+  { type:"cert", title:"Certificate of Achievement — RH436", issuer:"УЦ Инвента", year:"2023",
+    note:"Red Hat High Availability Clustering · HLD-20231702-01",
+    file:"certs/cert-rh436-inventa.jpg" }
 ];
 
 const CRED_META = {
@@ -1038,6 +1080,26 @@ $$(".reveal").forEach(el => io.observe(el));
 const showAll = () => $$(".reveal").forEach(el => el.classList.add("in"));
 if (!("IntersectionObserver" in window)) showAll();
 else setTimeout(() => { if (!$(".reveal.in")) showAll(); }, 2500);
+
+/* ---------- ОБРАТНЫЙ ОТСЧЁТ ДО ПЕРВОГО ВИДЕО ---------- */
+const RELEASE = new Date(2026, 7, 30);           /* 30 августа 2026, локальное время */
+(function countdown() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const days  = Math.round((RELEASE - start) / 86400000);
+  let text = "";
+  if (days > 1)       text = `через ${days} ${plural(days, "день", "дня", "дней")}`;
+  else if (days === 1) text = "завтра";
+  else if (days === 0) text = "сегодня";
+  $$("#cd, #cd2").forEach(el => el.textContent = text);
+})();
+function plural(n, one, few, many) {
+  const a = Math.abs(n) % 100, b = a % 10;
+  if (a > 10 && a < 20) return many;
+  if (b > 1 && b < 5)   return few;
+  if (b === 1)          return one;
+  return many;
+}
 
 /* ---------- ПЕЧАТАЮЩАЯСЯ СТРОКА ---------- */
 const phrases = ["системный администратор Linux", "инженер по автоматизации", "инфраструктура как код", "меньше ручной работы"];
