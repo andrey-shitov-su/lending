@@ -92,8 +92,8 @@ button,input,textarea{font:inherit;color:inherit}
 
 .wrap{width:min(1160px,100% - 56px);margin-inline:auto}
 @media(max-width:600px){.wrap{width:min(1160px,100% - 40px)}}
-section{padding:110px 0;position:relative}
-@media(max-width:760px){section{padding:76px 0}}
+section{padding:55px 0;position:relative}
+@media(max-width:760px){section{padding:38px 0}}
 
 h1,h2,h3{line-height:1.12;letter-spacing:-.025em;margin:0;font-weight:700}
 .grad{background:linear-gradient(100deg,var(--grad-a),var(--grad-b) 50%,var(--grad-c));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -161,7 +161,7 @@ h1,h2,h3{line-height:1.12;letter-spacing:-.025em;margin:0;font-weight:700}
 .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--text);box-shadow:var(--shadow)}
 
 /* ============ HERO ============ */
-#home{padding-top:calc(var(--nav-h) + 70px);padding-bottom:90px;overflow:hidden}
+#home{padding-top:calc(var(--nav-h) + 35px);padding-bottom:45px;overflow:hidden}
 .blobs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.34;animation:float 18s ease-in-out infinite}
 [data-theme="dark"] .blob{opacity:.32}
@@ -505,7 +505,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   <div class="wrap hero-grid">
     <div>
       <span class="badge"><span class="dot"></span> Linux · автоматизация · инфраструктура как код</span>
-      <h1>Инфраструктура, <br>которая собирается <span class="grad">сама</span></h1>
+      <h1>Инфраструктура, которая собирается <span class="grad">сама</span></h1>
       <span class="type-line"><span id="typed"></span><span class="caret"></span></span>
       <p class="lead">Системный администратор решений на Linux. Собираю платформу из RedHat Satellite, Ansible AWX, Kubernetes и Puppet, а рутину закрываю конвейерами на GitLab CI/CD, Terraform и Packer.</p>
       <div class="hero-cta">
@@ -546,7 +546,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Обо мне</span>
-      <h2>Как я пришёл в Linux<br>и автоматизацию</h2>
+      <h2>Как я пришёл в Linux и автоматизацию</h2>
     </div>
     <div class="about-text reveal">
       <p>С вычислительной техникой я на «ты» со школы: работая инженером по обслуживанию, с нуля собрал
@@ -630,7 +630,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Образование</span>
-      <h2>Дипломы, сертификаты<br>и грамоты</h2>
+      <h2>Дипломы, сертификаты и грамоты</h2>
       <p class="sec-sub">Подтверждения квалификации — от базового образования до курсов повышения. Нажмите на карточку, чтобы открыть скан целиком.</p>
     </div>
     <div class="filters reveal" id="cred-filters" role="group" aria-label="Фильтр документов">
@@ -648,7 +648,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">YouTube</span>
-      <h2>Канал стартует<br>30 августа</h2>
+      <h2>Канал стартует 30 августа</h2>
       <p class="sec-sub">Разбираю инфраструктурные задачи на практике — так, чтобы можно было повторить у себя.</p>
     </div>
     <div class="teaser reveal">
@@ -701,7 +701,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   <div class="wrap contact-grid">
     <div class="reveal">
       <span class="eyebrow">Контакты</span>
-      <h2>Давайте<br>поговорим</h2>
+      <h2>Давайте поговорим</h2>
       <p class="sec-sub">Открыт к разговору про инфраструктуру, автоматизацию и наведение порядка в платформе.
          Напишите — расскажу подробнее про любой кейс.</p>
       <ul class="links">
