@@ -1,1 +1,3 @@
 .claude/
+.secrets.env
+COMMITS.md
