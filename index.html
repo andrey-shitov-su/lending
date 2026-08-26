@@ -452,8 +452,7 @@ footer{padding:34px 0;border-top:1px solid var(--line)}
 <script>
 /* до первой отрисовки: помечаем страницу как «с JS» и ставим сохранённую тему, чтобы не мигало */
 (function(){var d=document.documentElement;d.className+=" js";try{var t=localStorage.getItem("theme");
-if(t)d.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: light)").matches)d.dataset.theme="light";
-var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
+if(t)d.dataset.theme=t;var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
 </script>
 <body>
 <a class="skip" href="#main">К основному содержимому</a>
@@ -1022,9 +1021,11 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch {} }
 };
 const root = document.documentElement;
+/* Дефолт для нового посетителя задан в разметке: data-theme="dark" data-brand="suse".
+   Системную схему (prefers-color-scheme) намеренно не учитываем — тёмная зелёная тема
+   это часть бренда. Ручной выбор посетителя её переопределяет и живёт в localStorage. */
 const saved = store.get("theme");
 if (saved) root.dataset.theme = saved;
-else if (matchMedia("(prefers-color-scheme: light)").matches) root.dataset.theme = "light";
 /* переключение цветовой гаммы: openSUSE ↔ Red Hat */
 const brandBtn = $("#brand");
 function brandLabel() {
