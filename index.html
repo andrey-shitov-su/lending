@@ -191,14 +191,15 @@ h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin:22px 0 0;font-weight:800}
   color:var(--ink-accent);background:color-mix(in srgb,var(--brand-deep) 16%,transparent);
   border:1px solid color-mix(in srgb,var(--brand-deep) 38%,transparent)}
 /* ---- цифры под первым экраном ---- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:72px;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:72px;
   background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .stat{background:var(--bg);padding:24px 22px}
-.stat b{display:block;font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:800;letter-spacing:-.03em;
+.stat b{display:block;font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:800;letter-spacing:-.03em;
   background:linear-gradient(120deg,var(--grad-a),var(--grad-b) 55%,var(--grad-c));
   -webkit-background-clip:text;background-clip:text;color:transparent}
 .stat b i{font-style:normal;margin:0 6px;opacity:.6}
 .stat span{display:block;margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+@media(max-width:1080px){.stats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr);margin-top:52px}}
 @media(max-width:480px){.stats{grid-template-columns:1fr}}
 /* ---- кнопка канала в шапке ---- */
@@ -539,6 +540,7 @@ var b=localStorage.getItem("brand");if(b)d.dataset.brand=b;}catch(e){}})();
   </div>
   <div class="wrap">
     <div class="stats reveal">
+      <div class="stat"><b id="itYears">17+ лет</b><span>в ИТ — официально с 2009 года</span></div>
       <div class="stat"><b>3000</b><span>серверов переключено на новую платформу</span></div>
       <div class="stat"><b>6 мес.</b><span>миграция парка без даунтайма</span></div>
       <div class="stat"><b>1 неделя<i>→</i>1 час</b><span>выпуск новой версии шаблона ОС</span></div>
@@ -1086,6 +1088,13 @@ $$(".reveal").forEach(el => io.observe(el));
 const showAll = () => $$(".reveal").forEach(el => el.classList.add("in"));
 if (!("IntersectionObserver" in window)) showAll();
 else setTimeout(() => { if (!$(".reveal.in")) showAll(); }, 2500);
+
+/* ---------- СТАЖ В ИТ: считается от года начала работы ---------- */
+const IT_SINCE = 2009;                           /* подтверждено Андреем 26.08.2026 */
+(function itYears() {
+  const el = $("#itYears");
+  if (el) el.textContent = (new Date().getFullYear() - IT_SINCE) + "+ лет";
+})();
 
 /* ---------- ОБРАТНЫЙ ОТСЧЁТ ДО ПЕРВОГО ВИДЕО ---------- */
 const RELEASE = new Date(2026, 7, 30);           /* 30 августа 2026, локальное время */
