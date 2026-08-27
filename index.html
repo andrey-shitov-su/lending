@@ -312,8 +312,12 @@ h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
 .teaser .badge #cd2:not(:empty){margin-left:8px;padding-left:8px;border-left:1px solid var(--line);opacity:.85}
 .teaser h3{font-size:clamp(1.25rem,3vw,1.75rem);margin-top:18px;letter-spacing:-.02em;position:relative}
 .teaser p{color:var(--muted);font-size:16px;max-width:58ch;margin-top:12px;position:relative}
+.teaser p.teaser-note{position:relative;font-size:14.5px;font-weight:600;color:var(--ink-accent);margin-top:14px}
 .teaser .hero-cta{position:relative}
-@media(max-width:640px){.teaser{padding:30px 22px}}
+@media(max-width:640px){.teaser{padding:30px 22px}
+  /* длинные подписи кнопок не должны вылезать за паддинг тизера */
+  .teaser .hero-cta{display:grid}
+  .teaser .hero-cta .btn{width:100%;justify-content:center;white-space:normal;text-align:center}}
 
 /* ---- блок для HR ---- */
 .hr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
@@ -554,18 +558,21 @@ if(t)d.dataset.theme=t;var b=localStorage.getItem("brand");if(b)d.dataset.brand=
     <div class="sec-head reveal">
       <span class="eyebrow">Обо мне</span>
       <h2>Как я пришёл в Linux и автоматизацию</h2>
+      <p class="sec-sub">Если вы сейчас в начале пути — эта история про то, что начинали все примерно одинаково.</p>
     </div>
     <div class="about-text reveal">
-      <p>С вычислительной техникой я на «ты» со школы: работая инженером по обслуживанию, с нуля собрал
-         серверную с контроллером домена и даже телефонию на аналоговой мини-АТС — тогда это казалось
-         настоящей взрослой инфраструктурой. Потом было промышленное предприятие: первое знакомство
-         с виртуализацией, серверы на SUSE Linux и по-настоящему разнородная сеть. Уже там я понял главное
-         про себя: мне интереснее не чинить руками, а строить так, чтобы чинить не приходилось.</p>
-      <p>Со временем фокус сместился в инфраструктурный мониторинг и автоматизацию — Zabbix, SolarWinds,
-         системы автоматических оповещений по ИТ-инцидентам, — а затем в поддержку enterprise-инфраструктуры
-         на Red Hat Satellite и RHEL. Сейчас занимаюсь тем же по сути: автоматизацией жизненного цикла
-         Linux-инфраструктуры, отказоустойчивостью и self-service для команд эксплуатации. Регулярно учусь
-         сам и готовлю канал и курсы — чтобы делиться этим с теми, кто только начинает путь в Linux.</p>
+      <p>Никакого плана у меня не было. В школе я работал инженером по обслуживанию и с нуля собрал
+         серверную с контроллером домена, а потом и телефонию на аналоговой мини-АТС — тогда это казалось
+         настоящей взрослой инфраструктурой. Дальше было промышленное предприятие: первое знакомство
+         с виртуализацией, серверы на SUSE Linux и сеть, в которой уживалось всё подряд. Я просто разбирался
+         с тем, что ломалось, — и уже там понял главное про себя: интереснее не чинить руками, а строить так,
+         чтобы чинить не приходилось.</p>
+      <p>Дальше был мониторинг, автоматизация оповещений об инцидентах, поддержка большой инфраструктуры
+         на Red Hat — и с каждым шагом всё меньше ручной работы. Ничего из этого мне не объяснили заранее:
+         я собирал понимание по кускам, из документации и сломанных стендов. Если вам сейчас кажется, что
+         вокруг все уже всё знают, — они тоже когда-то не знали. Канал и курсы я готовлю ровно за этим:
+         показать, как устроены вещи, которые со стороны выглядят магией, чтобы вам не пришлось собирать
+         их по кускам, как собирал я.</p>
     </div>
   </div>
 </section>
@@ -656,16 +663,18 @@ if(t)d.dataset.theme=t;var b=localStorage.getItem("brand");if(b)d.dataset.brand=
     <div class="sec-head reveal">
       <span class="eyebrow">YouTube</span>
       <h2>Канал стартует 30 августа</h2>
-      <p class="sec-sub">Разбираю инфраструктурные задачи на практике — так, чтобы можно было повторить у себя.</p>
+      <p class="sec-sub">Разбираю инфраструктурные задачи на практике: не «посмотрите, как я умею», а так, чтобы вы повторили это у себя.</p>
     </div>
     <div class="teaser reveal">
       <span class="badge"><span class="dot"></span> Первое видео — 30 августа 2026<span id="cd2"></span></span>
       <h3>HA-кластер HAProxy: от схемы до рабочей конфигурации</h3>
-      <p>Как устроена балансировка, что именно делает кластер отказоустойчивым и как не собрать себе
-         единую точку отказа вместо страховки.</p>
+      <p>Разберём, как устроена балансировка, что именно делает кластер отказоустойчивым и почему из двух
+         серверов легко получить не страховку, а единую точку отказа. Если вы только подступаетесь
+         к отказоустойчивости — начните отсюда, дальше будет проще.</p>
+      <p class="teaser-note">Подпишитесь сейчас — и первое видео придёт к вам само, искать его не придётся.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://www.youtube.com/@Andrey.Shitov" target="_blank" rel="noopener">
-          Подписаться на YouTube
+          Подписаться, чтобы не пропустить
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-ghost" href="https://rutube.ru/channel/71673172/" target="_blank" rel="noopener">
