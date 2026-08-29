@@ -309,7 +309,6 @@ h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
   box-shadow:var(--shadow);position:relative;overflow:hidden}
 .teaser::before{content:"";position:absolute;inset:auto -80px -120px auto;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle,color-mix(in srgb,var(--brand) 30%,transparent),transparent 70%);pointer-events:none}
-.teaser .badge #cd2:not(:empty){margin-left:8px;padding-left:8px;border-left:1px solid var(--line);opacity:.85}
 .teaser h3{font-size:clamp(1.25rem,3vw,1.75rem);margin-top:18px;letter-spacing:-.02em;position:relative}
 .teaser p{color:var(--muted);font-size:16px;max-width:58ch;margin-top:12px;position:relative}
 .teaser p.teaser-note{position:relative;font-size:14.5px;font-weight:600;color:var(--ink-accent);margin-top:14px}
@@ -528,7 +527,7 @@ if(t)d.dataset.theme=t;var b=localStorage.getItem("brand");if(b)d.dataset.brand=
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-      <p class="cta-note">Первое видео — <b>30 августа 2026</b><span id="cd"></span></p>
+      <p class="cta-note">Первое видео — <b>скоро</b></p>
     </div>
     <div class="tilt-wrap">
       <div class="card3d" id="tilt">
@@ -662,11 +661,11 @@ if(t)d.dataset.theme=t;var b=localStorage.getItem("brand");if(b)d.dataset.brand=
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">YouTube</span>
-      <h2>Канал стартует 30 августа</h2>
+      <h2>Канал скоро стартует</h2>
       <p class="sec-sub">Разбираю инфраструктурные задачи на практике: не «посмотрите, как я умею», а так, чтобы вы повторили это у себя.</p>
     </div>
     <div class="teaser reveal">
-      <span class="badge"><span class="dot"></span> Первое видео — 30 августа 2026<span id="cd2"></span></span>
+      <span class="badge"><span class="dot"></span> Первое видео — скоро</span>
       <h3>HA-кластер HAProxy: от схемы до рабочей конфигурации</h3>
       <p>Разберём, как устроена балансировка, что именно делает кластер отказоустойчивым и почему из двух
          серверов легко получить не страховку, а единую точку отказа. Если вы только подступаетесь
@@ -1104,26 +1103,6 @@ const IT_SINCE = 2009;                           /* подтверждено А�
   const el = $("#itYears");
   if (el) el.textContent = (new Date().getFullYear() - IT_SINCE) + "+ лет";
 })();
-
-/* ---------- ОБРАТНЫЙ ОТСЧЁТ ДО ПЕРВОГО ВИДЕО ---------- */
-const RELEASE = new Date(2026, 7, 30);           /* 30 августа 2026, локальное время */
-(function countdown() {
-  const today = new Date();
-  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const days  = Math.round((RELEASE - start) / 86400000);
-  let text = "";
-  if (days > 1)       text = `через ${days} ${plural(days, "день", "дня", "дней")}`;
-  else if (days === 1) text = "завтра";
-  else if (days === 0) text = "сегодня";
-  $$("#cd, #cd2").forEach(el => el.textContent = text);
-})();
-function plural(n, one, few, many) {
-  const a = Math.abs(n) % 100, b = a % 10;
-  if (a > 10 && a < 20) return many;
-  if (b > 1 && b < 5)   return few;
-  if (b === 1)          return one;
-  return many;
-}
 
 /* ---------- ПЕЧАТАЮЩАЯСЯ СТРОКА ---------- */
 const phrases = ["системный администратор Linux", "инженер по автоматизации", "инфраструктура как код", "меньше ручной работы"];
